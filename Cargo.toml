@@ -1,0 +1,16 @@
+[package]
+name = "comiconv-server"
+version = "0.1.0"
+edition = "2021"
+authors = ["Chrontax"]
+description = "A server for converting comic book archives, compatible with comiconv."
+license = "Apache-2.0 OR MIT"
+homepage = "https://github.com/chrontax/comiconv-server"
+repository = "https://github.com/chrontax/comiconv-server"
+readme = "README.md"
+categories = ["encoding"]
+keywords = ["comic", "convert", "server"]
+
+[dependencies]
+comiconv = "0.2.1"
+sha2 = "0.10.8"
