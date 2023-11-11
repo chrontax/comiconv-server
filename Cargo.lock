@@ -63,15 +63,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "avif-serialize"
-version = "0.8.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "876c75a42f6364451a033496a14c44bffe41f5f4a8236f697391f11024e596d2"
-dependencies = [
- "arrayvec",
-]
-
-[[package]]
 name = "bit-set"
 version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -207,9 +198,9 @@ checksum = "3d7b894f5411737b7867f4827955924d7c254fc9f4d91a6aad6b097804b1018b"
 
 [[package]]
 name = "comiconv"
-version = "0.2.1"
+version = "0.2.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "dd751290a975c99e5ebb4453f12762a7c974f07dc388e94cea3327bcaba8e1a6"
+checksum = "6b30a812463eacbaf415eba364180a8756e9dec3e406be16ed1cbbd3285e85a0"
 dependencies = [
  "image",
  "indicatif",
@@ -469,16 +460,8 @@ dependencies = [
  "num-rational",
  "num-traits",
  "png",
- "ravif",
- "rgb",
  "webp",
 ]
-
-[[package]]
-name = "imgref"
-version = "1.10.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90d944e334f00f4449c9640b440a171f816be0152305c12ef90424fc35fd035c"
 
 [[package]]
 name = "indexmap"
@@ -596,6 +579,7 @@ dependencies = [
  "cmake",
  "libc",
  "libdav1d-sys",
+ "rav1e",
 ]
 
 [[package]]
@@ -640,15 +624,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b5e6163cb8c49088c2c36f57875e58ccd8c87c7427f7fbd50ea6710b2f3f2e8f"
 
 [[package]]
-name = "loop9"
-version = "0.1.4"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "81a837f917de41d61ab531ba255d1913208d02325cab0d6a66a706e0dbaa699d"
-dependencies = [
- "imgref",
-]
-
-[[package]]
 name = "lzma-rust"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -664,7 +639,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8ea1f30cedd69f0a2954655f7188c6a834246d2bcf1e315e2ac40c4b24dc9519"
 dependencies = [
  "cfg-if",
- "rayon",
 ]
 
 [[package]]
@@ -874,12 +848,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "quick-error"
-version = "2.0.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a993555f31e5a609f617c12db6250dedcac1b0a85076912c436e6fc9b2c8e6a3"
-
-[[package]]
 name = "quote"
 version = "1.0.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -949,26 +917,11 @@ dependencies = [
  "rand_chacha",
  "rust_hawktracer",
  "rustc_version",
+ "scan_fmt",
  "simd_helpers",
  "system-deps",
  "thiserror",
  "v_frame",
- "wasm-bindgen",
-]
-
-[[package]]
-name = "ravif"
-version = "0.11.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "badc69028460108fa7e32d4aec2b0c980710d7a31a896864002c8c1fc61516ee"
-dependencies = [
- "avif-serialize",
- "imgref",
- "loop9",
- "quick-error",
- "rav1e",
- "rayon",
- "rgb",
 ]
 
 [[package]]
@@ -1001,15 +954,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "rgb"
-version = "0.8.37"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "05aaa8004b64fd573fc9d002f4e632d51ad4f026c2b5ba95fcb6c2f32c2c47d8"
-dependencies = [
- "bytemuck",
-]
-
-[[package]]
 name = "rust_hawktracer"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1039,6 +983,12 @@ checksum = "bfa0f585226d2e68097d4f95d113b15b83a82e819ab25717ec0590d9584ef366"
 dependencies = [
  "semver",
 ]
+
+[[package]]
+name = "scan_fmt"
+version = "0.2.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b53b0a5db882a8e2fdaae0a43f7b39e7e9082389e978398bdf223a55b581248"
 
 [[package]]
 name = "scopeguard"
