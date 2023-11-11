@@ -24,7 +24,10 @@ fn main() {
 fn handle_client(mut stream: TcpStream) {
     {
         let mut buf = [0; 4];
-        stream.read_exact(&mut buf).unwrap();
+        if stream.read_exact(&mut buf).is_err() {
+            stream.shutdown(Shutdown::Both).unwrap();
+            return;
+        }
         if &buf != b"comi" {
             return;
         }
@@ -82,5 +85,5 @@ fn handle_client(mut stream: TcpStream) {
     stream.write_all(&len.to_be_bytes()).unwrap();
     stream.write_all(&hash).unwrap();
     stream.write_all(&file).unwrap();
-    stream.shutdown(Shutdown::Both).unwrap();
+    handle_client(stream);
 }

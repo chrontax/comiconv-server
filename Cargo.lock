@@ -207,7 +207,9 @@ checksum = "3d7b894f5411737b7867f4827955924d7c254fc9f4d91a6aad6b097804b1018b"
 
 [[package]]
 name = "comiconv"
-version = "0.2.0"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dd751290a975c99e5ebb4453f12762a7c974f07dc388e94cea3327bcaba8e1a6"
 dependencies = [
  "image",
  "indicatif",
