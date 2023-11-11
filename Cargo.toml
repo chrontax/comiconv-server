@@ -1,6 +1,6 @@
 [package]
 name = "comiconv-server"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Chrontax"]
 description = "A server for converting comic book archives, compatible with comiconv."
