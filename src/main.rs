@@ -8,7 +8,27 @@ use std::{
 };
 
 fn main() {
-    let listener = TcpListener::bind("0.0.0.0:2137").unwrap();
+    let mut args = std::env::args();
+    args.next();
+    let mut port = 2137;
+    while let Some(arg) = args.next() {
+        match arg.as_str() {
+            "-h" | "--help" => {
+                print_help();
+                return;
+            }
+            "-v" | "--version" => {
+                println!("{}", env!("CARGO_PKG_VERSION"));
+                return;
+            }
+            "-p" | "--port" => port = args.next().unwrap().parse().unwrap(),
+            _ => {
+                println!("Unknown argument: {}", arg);
+                return;
+            }
+        }
+    }
+    let listener = TcpListener::bind(("0.0.0.0", port)).unwrap();
     for stream in listener.incoming() {
         let stream = stream.unwrap();
         stream.set_nodelay(true).unwrap();
@@ -86,4 +106,14 @@ fn handle_client(mut stream: TcpStream) {
     stream.write_all(&hash).unwrap();
     stream.write_all(&file).unwrap();
     handle_client(stream);
+}
+
+fn print_help() {
+    println!("Usage: comiconv-server [options]");
+    println!();
+    println!("Options:");
+    println!();
+    println!("  -h, --help\t\tPrint this help message");
+    println!("  -v, --version\t\tPrint version");
+    println!("  -p, --port\t\tPort to listen on (default: 2137)");
 }
