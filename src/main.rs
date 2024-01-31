@@ -95,7 +95,7 @@ fn handle_client(mut stream: TcpStream) {
     if hasher.finalize() != hash.into() {
         return;
     }
-    let file = conv.convert(&file, Some(&mut stream));
+    let file = conv.convert(&file, Some(&mut stream)).unwrap();
     let len = file.len() as u32;
     let hash = {
         let mut hasher = Sha256::new();
